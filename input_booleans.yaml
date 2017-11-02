@@ -1,0 +1,35 @@
+alarmweekday:
+  name: Active weekdays
+  initial: on
+  icon: mdi:calendar
+
+alarmweekon:
+  name: Active weekends
+  initial: on
+
+# activate_hyperion_effect:
+#   name: Run Effect
+#   initial: off
+
+
+
+# Homekit Scenes
+# good_morning:
+#   name: Good Morning
+#   initial: off
+#   icon: mdi:weather-sunset-up
+#
+# leave_home:
+#   name: Leave Home
+#   initial: off
+#   icon: mdi:logout-variant
+#
+# arrive_home:
+#   name: Arrive Home
+#   initial: off
+#   icon: mdi:login-variant
+#
+# enable_night_music:
+#   name: Good Night
+#   initial: off
+#   icon: mdi:sleep

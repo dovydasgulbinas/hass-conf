@@ -1,0 +1,107 @@
+sensor.pws_dewpoint_c:
+  friendly_name: Dew Point
+  icon: mdi:water-percent
+
+sensor.pws_temp_c:
+  friendly_name: Outside temp
+  icon: mdi:temperature-celsius
+
+sensor.pws_relative_humidity:
+  friendly_name: Outside humidity
+
+sensor.pws_pressure_mb:
+  friendly_name: Outside pressure
+  icon: mdi:thermometer-lines
+
+light.porch_strip:
+  hidden: true
+
+group.led_strip_group:
+  hidden: true
+
+input_number.porch_animation_speed:
+  hidden: true
+
+automation.porch_animation_speed:
+  hidden: true
+
+automation.tv_backlight:
+  hidden: true
+
+automation.loop_back_test:
+  hidden: true
+
+sensor.home_precise_temperature:
+  icon: mdi:temperature-celsius
+
+sensor.home_temperature:
+  icon: mdi:temperature-celsius
+
+sensor.home_humidity:
+  icon: mdi:water-percent
+
+sensor.home_pressure:
+  icon: mdi:thermometer-lines
+
+media_player.kodi:
+  hidden: false
+
+media_player.spotify:
+  hidden: false
+
+group.transmission_item_group:
+  hidden: false
+
+group.hdmi_switch_group:
+  hidden: false
+
+switch.home_assistant_system_shutdown:
+  friendly_name: Reboot RPi
+
+sensor.quote:
+  friendly_name: Fortune
+
+scene.room_normal:
+  icon: mdi:lightbulb-on-outline
+
+scene.room_dim:
+  icon: mdi:lightbulb
+
+scene.good_morning:
+  icon: mdi:weather-sunset-up
+
+scene.leave_home:
+  icon: mdi:logout-variant
+
+scene.arrive_home:
+  icon: mdi:login-variant
+
+scene.good_night:
+  icon: mdi:sleep
+
+switch.strip_cord:
+  icon: mdi:power-plug
+
+script.wakeup:
+  hidden: true
+
+script.leaving_home:
+  hidden: true
+
+script.welcome_home:
+  hidden: true
+
+script.good_night:
+  hidden: true
+
+light.omc:
+  friendly_name: Backlight
+
+sensor.hermesmobile_battery_state:
+  hidden: true
+
+sensor.hermesmobile_battery_level:
+  hidden: true
+
+script.hyperion_run:
+  can_cancel: false

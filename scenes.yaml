@@ -1,0 +1,49 @@
+- name: Room Normal
+  entities:
+    light.my_light:
+      state: on
+      transition: 10
+      brightness_pct: 100
+
+- name: Room Normal Slow
+  entities:
+    light.my_light:
+      state: on
+      transition: 255
+      brightness_pct: 100
+
+- name: Room Morning Alarm Light
+  entities:
+    light.my_light:
+      state: on
+      transition: 1800
+      brightness_pct: 100
+
+- name: Room Dim
+  entities:
+    light.my_light:
+      state: on
+      transition: 3
+      brightness_pct: 10
+
+- name: Good Morning
+  entities:
+    script.wakeup:
+      state: on
+
+- name: Leave Home
+  entities:
+    script.leaving_home:
+      state: on
+
+
+- name: Arrive Home
+  entities:
+    script.welcome_home:
+      state: on
+
+
+- name: Good Night
+  entities:
+    script.good_night:
+      state: on

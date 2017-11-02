@@ -1,0 +1,79 @@
+weather_info_group:
+  name: Weather Info
+  entities:
+  - sun.sun
+  - sensor.pws_temp_c
+  - sensor.home_temperature
+  - sensor.home_precise_temperature
+  - sensor.home_humidity
+  - sensor.pws_relative_humidity
+  - sensor.pws_pressure_mb
+  - sensor.home_pressure
+  - sensor.pws_dewpoint_c
+transmission_item_group:
+  name: Transmission & Sonarr
+  entities:
+  - weblink.transmission
+  - switch.slowdown_transmission
+  - sensor.transmission_status
+  - sensor.transmission_up_speed
+  - sensor.transmission_down_speed
+  - weblink.sonarr
+  - sensor.sonarr_disk_space
+  - sensor.sonarr_upcoming
+  - sensor.sonarr_queue
+  - sensor.sonarr_wanted
+  - weblink.kodi
+hdmi_switch_group:
+  name: HDMI Selector
+  entities:
+  - switch.hdmi_channel_1
+  - switch.hdmi_channel_2
+  - switch.hdmi_channel_3
+  - switch.strip_cord
+alarm_clock_group:
+  name: Alarm Clock
+  entities:
+  # - sensor.alarm_time
+  - input_number.alarmhour
+  - input_number.alarmminutes
+  - input_boolean.alarmweekday
+  - input_boolean.alarmweekon
+  # view: true
+alarm_clowck_view:
+  name: Alarm Clock
+  entities:
+    - sensor.alarm_time
+    - group.alarm_clock_group
+  view: true
+rpi_info_group:
+  name: Raspberry Info
+  entities:
+  - sensor.myipopendnscom
+  - sensor.cpu_speed
+  - sensor.cpu_use
+  - sensor.ram_free
+  - sensor.disk_use_home
+  - switch.home_assistant_system_shutdown
+daily_drivers:
+  name: Favourites
+  entities:
+  - light.my_light
+  - light.omc
+  - switch.strip_cord
+media_control_view:
+  name: Media
+  view: true
+  entities:
+  - media_player.kodi
+  - media_player.spotify
+  - group.hdmi_switch_group
+  - group.transmission_item_group
+
+hyperion_group:
+  name: Hyperion Control
+  entities:
+    - input_select.hyperion_effects
+    - script.hyperion_run
+    - light.omc
+    - switch.hyperion_service

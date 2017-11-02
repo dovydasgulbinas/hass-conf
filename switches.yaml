@@ -1,0 +1,30 @@
+- platform: transmission
+  name: Slowdown Transmission
+  host: !secret transmission_host
+  username: !secret transmission_username
+  password: !secret transmission_password
+
+#- platform: hdmi
+
+- platform: command_line
+  switches:
+    home_assistant_system_shutdown:
+      command_off: "/usr/bin/sudo /sbin/reboot"
+
+- platform: mqtt
+  name: "Strip Cord"
+  command_topic: "cmnd/sonoff/power"
+  state_topic: "stat/sonoff/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: command_line
+  switches:
+    hyperion_service:
+      command_on: "ssh homeassistant@192.168.0.103 'sudo systemctl start hyperion.service'"
+      command_off: "ssh homeassistant@192.168.0.103 'sudo systemctl stop hyperion.service'"
+      # command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+      # value_template: '{{ value == "1" }}'
+      friendly_name: Hyperion Service

@@ -1,0 +1,97 @@
+# Weather Prediction
+- platform: yr
+
+- platform: wunderground
+  api_key: !secret wu_key
+  monitored_conditions:
+    - dewpoint_c
+    - temp_c
+    - relative_humidity
+    - pressure_mb
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+#- platform: android_ip_webcam
+#  resources:
+#    - type: light
+#    - type: pressure
+#    - type: battery_temp
+
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Temperature"
+#  unit_of_measurement: "°C"
+#  value_template: '{{ value_json.temperature | round(1) }}'
+#  force_update: true
+#  icon: mdi:temperature-celsius
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Humidity"
+#  unit_of_measurement: "%"
+#  value_template: '{{ value_json.humidity | round(1) }}'
+#  force_update: true
+#  icon: mdi:water-percent
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Precise Temperature"
+#  unit_of_measurement: "°C"
+#  value_template: '{{ value_json.temp_precise | round(2) }}'
+#  force_update: true
+#  icon: mdi:temperature-celsius
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Pressure"
+#  unit_of_measurement: "mbar"
+#  value_template: '{{ value_json.pressure | round(2) }}'
+#  force_update: true
+#  icon: mdi:thermometer-lines
+
+- platform: transmission
+  host: !secret transmission_host
+  username: !secret transmission_username
+  password: !secret transmission_password
+  monitored_variables:
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'
+
+- platform: sonarr
+  api_key: !secret sonarr_api_key
+  host: !secret sonarr_host
+  port: 8989
+  monitored_conditions:
+    - diskspace
+    - wanted
+    - queue
+    - upcoming
+  days: 2
+
+- platform: dnsip
+
+- platform: cpuspeed
+
+- platform: template
+  sensors:
+    alarm_time:
+      friendly_name: 'Alarm Time'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'
+
+- platform: template
+  sensors:
+    current_time:
+      friendly_name: 'Time'
+      value_template: '{{now().strftime("%H:%M")}}'
+
+# - platform: template
+
+#- platform: command_line
+#  name: quote
+#  command: /usr/games/fortune
+#  scan_interval: 3600

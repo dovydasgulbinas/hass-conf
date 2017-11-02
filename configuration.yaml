@@ -1,0 +1,125 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 54.6833
+  longitude: 25.3167
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 136
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Vilnius
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+automation: !include automations.yaml
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret hass_api_password
+  base_url: !secret hass_url
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+ios:
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor: !include sensors.yaml
+
+# tts:
+#   platform: google
+
+scene: !include scenes.yaml
+
+script: !include scripts.yaml
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+  - platform: kodi
+    host: !secret kodi_host 
+    username: !secret kodi_username
+    password: !secret kodi_password
+    port: 8080
+    turn_off_action: reboot
+    # enable_websocket: false
+    # proxy_ssl: false
+
+input_number:
+  porch_animation_speed:
+    name: Porch Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10
+  alarmhour:
+    name: Hour
+    icon: mdi:timer
+    initial: 7
+    min: 0
+    max: 23
+    step: 1
+  alarmminutes:
+    name: Minutes
+    icon: mdi:timer
+    initial: 30
+    min: 0
+    max: 59
+    step: 5
+
+input_boolean: !include input_booleans.yaml
+
+weblink:
+  entities:
+    - name: Transmission
+      url: http://omc.local:9091
+    - name: Sonarr
+      url: http://omc.local:8989
+    - name: Kodi
+      url: http://omc.local:8080/
+
+switch: !include switches.yaml
+
+#logger:
+#  default: warning
+#  logs:
+#    homeassistant.components.switch.hdmi: debug
+
+group: !include groups.yaml
+
+# HYPERION
+
+input_select:
+  hyperion_effects:
+    name: Hyperion Effects
+    options: !include hyperion_effect_list.yaml
+    initial: Rainbow swirl
+    icon: mdi:white-balance-iridescent
+
+shell_command:
+  run_hyperion_effect:  "ssh homeassistant@omc.local \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "
