@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  name: Hermes Home
   # Location required to calculate the time the sun rises and sets
   latitude: 54.6833
   longitude: 25.3167
@@ -34,9 +34,21 @@ updater:
 # Discover some devices automatically
 discovery:
 
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 192.168.0.1/24
+    home_interval: 10
+    exclude:
+     - 192.168.0.107
+     - 192.168.0.1
+     - 192.168.0.2
+     - 192.168.0.3
+     - 192.168.0.4
+     - 192.168.0.103
+
 ios:
 # Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
+conversation:
 
 # Enables support for tracking state changes over time.
 history:
@@ -67,16 +79,8 @@ media_player:
     password: !secret kodi_password
     port: 8080
     turn_off_action: reboot
-    # enable_websocket: false
-    # proxy_ssl: false
 
 input_number:
-  porch_animation_speed:
-    name: Porch Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
   alarmhour:
     name: Hour
     icon: mdi:timer
@@ -104,13 +108,14 @@ weblink:
       url: http://omc.local:8080/
 
 switch: !include switches.yaml
+group: !include groups.yaml
+light: !include lights.yaml
 
 #logger:
 #  default: warning
 #  logs:
 #    homeassistant.components.switch.hdmi: debug
 
-group: !include groups.yaml
 
 # HYPERION
 
@@ -122,4 +127,4 @@ input_select:
     icon: mdi:white-balance-iridescent
 
 shell_command:
-  run_hyperion_effect:  "ssh homeassistant@omc.local \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "
+  run_hyperion_effect:  "ssh homeassistant@192.168.0.103 \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "

@@ -43,3 +43,5 @@ ip_bans.yaml
 /icloud/*
 ios.conf
 config.json
+know_devices.yaml
+source/*
