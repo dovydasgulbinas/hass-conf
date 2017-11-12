@@ -1,158 +1,117 @@
 wakeup:
   alias: Wake Up
   sequence:
-
-    - alias: Notify me
-      service: notify.notify
-      data:
-        message: Good morning!
-
-    - alias: Enable light dimming
-      service: automation.turn_on
-      data:
-        entity_id: automation.media_player_pausedstopped
-
-    - alias: Enable dim light on playing
-      service: automation.turn_on
-      data:
-        entity_id: automation.media_player_playing
-
-    # - delay:
-    #     # supports seconds, milliseconds, minutes, hours
-    #     minutes: 1
-
-    - alias: Turn on Socket
-      service: switch.turn_on
-      data:
-        entity_id: switch.strip_cord
-
-    - alias: Volume UP kodi
-      service: media_player.volume_set
-      data:
-        entity_id: media_player.kodi
-        volume_level: '1.0'
-
-    - alias: Start LRT
-      service: media_player.kodi_call_method
-      data:
-        entity_id: media_player.kodi
-        item:
-          channelid: 2
-        method: Player.Open
-
+  - alias: Notify me
+    data:
+      message: Good morning!
+    service: notify.notify
+  - alias: Dunno
+    data:
+      entity_id: automation.media_player_playing
+    service: automation.turn_on
+  - alias: Turn on Socket
+    data:
+      entity_id: switch.strip_cord
+    service: switch.turn_on
+  - alias: Volume UP kodi
+    data:
+      entity_id: media_player.kodi
+      volume_level: '1.0'
+    service: media_player.volume_set
+  - alias: Start LRT
+    data:
+      entity_id: media_player.kodi
+      item:
+        channelid: 2
+      method: Player.Open
+    service: media_player.kodi_call_method
 good_night:
   alias: Good Night!
   sequence:
-
-    - alias: Notify me
-      service: notify.notify
-      data:
-        message: Good Night!
-
-    - alias: Disable light dimming
-      service: automation.turn_off
-      data:
-        entity_id: automation.media_player_pausedstopped
-
-    - alias: Disable dim light on playing
-      service: automation.turn_off
-      data:
-        entity_id: automation.media_player_playing
-
-    - alias: kill monitor
-      data:
-        entity_id: switch.strip_cord
-      service: switch.turn_off
-
-    - alias: turn off hyperion light
-      service: light.turn_off
-      data:
-        entity_id: light.omc
-
-    - alias: Disable hyperion service
-      service: switch.turn_off
-      data:
-        entity_id: switch.hyperion_service
-
-    - alias: Play rain
-      data:
-        entity_id: media_player.kodi
-        media_content_id: plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=yhx3JIF7bGU
-        media_content_type: video
-      service: media_player.play_media
-
-    - alias: volume down kodi
-      data:
-        entity_id: media_player.kodi
-        volume_level: '0.3'
-      service: media_player.volume_set
-
-    - alias: night light
-      data:
-        entity_id: light.my_light
-        transition: 5
-      service: light.turn_off
-
-
-
+  - alias: Notify me
+    service: notify.notify
+    data:
+      message: Good Night!
+  - alias: Disable light dimming
+    service: automation.turn_off
+    data:
+      entity_id: automation.media_player_pausedstopped
+  - alias: Disable dim light on playing
+    service: automation.turn_off
+    data:
+      entity_id: automation.media_player_playing
+  - alias: kill monitor
+    data:
+      entity_id: switch.strip_cord
+    service: switch.turn_off
+  - alias: turn off hyperion light
+    service: light.turn_off
+    data:
+      entity_id: light.omc
+  - alias: Disable hyperion service
+    service: switch.turn_off
+    data:
+      entity_id: switch.hyperion_service
+  - alias: Play rain
+    data:
+      entity_id: media_player.kodi
+      media_content_id: plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=yhx3JIF7bGU
+      media_content_type: video
+    service: media_player.play_media
+  - alias: volume down kodi
+    data:
+      entity_id: media_player.kodi
+      volume_level: '0.3'
+    service: media_player.volume_set
+  - alias: night light
+    data:
+      entity_id: light.my_light
+      transition: 5
+    service: light.turn_off
 leaving_home:
   alias: Leaving home!
   sequence:
-
-    - alias: Notify me
-      service: notify.notify
-      data:
-        message: See you later!
-
-    - alias: Turn off my light
-      data:
-        entity_id: light.my_light
-        transition: 2
-      service: light.turn_off
-
-    - alias: Pause kodi
-      data:
-        entity_id: media_player.kodi
-      service: media_player.media_pause
-
-    - alias: kill monitor
-      data:
-        entity_id: switch.strip_cord
-      service: switch.turn_off
-
-
+  - alias: Notify me
+    service: notify.notify
+    data:
+      message: See you later!
+  - alias: Turn off my light
+    data:
+      entity_id: light.my_light
+      transition: 2
+    service: light.turn_off
+  - alias: Pause kodi
+    data:
+      entity_id: media_player.kodi
+    service: media_player.media_pause
+  - alias: kill monitor
+    data:
+      entity_id: switch.strip_cord
+    service: switch.turn_off
 welcome_home:
   alias: Back at home!
   sequence:
-    - alias: Notify me
-      service: notify.notify
-      data:
-        message: Welcome back home!
-
-    - alias: turn monitor on
-      data:
-        entity_id: switch.strip_cord
-      service: switch.turn_on
-
-    - delay:
-        seconds: 20
-
-    - alias: volume down kodi
-      data:
-        entity_id: media_player.kodi
-        volume_level: '0.8'
-      service: media_player.volume_set
-
-    # TODO: Add a question if media should be played
-
-    - alias:  Unpause kodi
-      service: media_player.media_play
-      data:
-        entity_id: media_player.kodi
-
-
+  - alias: Notify me
+    service: notify.notify
+    data:
+      message: Welcome back home!
+  - alias: turn monitor on
+    data:
+      entity_id: switch.strip_cord
+    service: switch.turn_on
+  - delay:
+      seconds: 20
+  - alias: volume down kodi
+    data:
+      entity_id: media_player.kodi
+      volume_level: '0.8'
+    service: media_player.volume_set
+  - alias: Unpause kodi
+    service: media_player.media_play
+    data:
+      entity_id: media_player.kodi
 hyperion_run:
   alias: Run Hyperion Effect
   sequence:
-    - alias: Run selected effect
-      service: shell_command.run_hyperion_effect
+  - alias: Run selected effect
+    service: shell_command.run_hyperion_effect

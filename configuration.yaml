@@ -2,10 +2,10 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Hermes Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 54.6833
-  longitude: 25.3167
+  latitude: !secret latitude
+  longitude: !secret longitude 
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 136
+  elevation: !secret elevation
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -22,6 +22,13 @@ frontend:
 # Enables configuration UI
 automation: !include automations.yaml
 config:
+
+mqtt:
+  broker: core-mosquitto
+  port: 1883
+  client_id: hassio
+  username: !secret mqtt_username
+  password: !secret mqtt_password 
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -59,26 +66,19 @@ logbook:
 # Track the sun
 sun:
 
-# Weather Prediction
-sensor: !include sensors.yaml
 
 # tts:
 #   platform: google
 
+sensor: !include sensors.yaml
 scene: !include scenes.yaml
-
+input_boolean: !include input_booleans.yaml
 script: !include scripts.yaml
+switch: !include switches.yaml
+group: !include groups.yaml
+light: !include lights.yaml
 
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
-  - platform: kodi
-    host: !secret kodi_host 
-    username: !secret kodi_username
-    password: !secret kodi_password
-    port: 8080
-    turn_off_action: reboot
+media_player: !include media_players.yaml
 
 input_number:
   alarmhour:
@@ -96,7 +96,6 @@ input_number:
     max: 59
     step: 5
 
-input_boolean: !include input_booleans.yaml
 
 weblink:
   entities:
@@ -107,14 +106,18 @@ weblink:
     - name: Kodi
       url: http://omc.local:8080/
 
-switch: !include switches.yaml
-group: !include groups.yaml
-light: !include lights.yaml
 
 #logger:
 #  default: warning
 #  logs:
 #    homeassistant.components.switch.hdmi: debug
+
+
+
+panel_iframe:
+  router:
+    title: 'Socket'
+    url: 'http://192.168.0.4'
 
 
 # HYPERION
