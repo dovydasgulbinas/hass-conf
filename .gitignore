@@ -44,4 +44,6 @@ ip_bans.yaml
 ios.conf
 config.json
 know_devices.yaml
-source/*
+source/
+/config/source/
+homebridge/persist/*

@@ -89,6 +89,10 @@
       friendly_name: 'Time'
       value_template: '{{now().strftime("%H:%M")}}'
 
+- platform: worldclock
+  time_zone: 'Europe/Vilnius'
+
+
 # - platform: template
 
 #- platform: command_line

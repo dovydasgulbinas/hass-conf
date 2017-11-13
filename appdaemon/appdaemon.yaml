@@ -1,0 +1,15 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  threads: 10
+  app_dir: /config/appdaemon/apps
+HASS:
+  ha_url: https://namas.duckdns.org:443
+HADashboard:
+  dash_url: http://hassio.local:5050
+  dash_dir: /config/appdaemon/dashboards
+
+# Apps
+hello_world:
+  module: hello
+  class: HelloWorld

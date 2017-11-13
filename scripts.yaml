@@ -22,7 +22,7 @@ wakeup:
     data:
       entity_id: media_player.kodi
       item:
-        channelid: 2
+        channelid: 30
       method: Player.Open
     service: media_player.kodi_call_method
 good_night:

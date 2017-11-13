@@ -43,6 +43,8 @@ alarm_clock_group:
 alarm_clowck_view:
   name: Alarm Clock
   entities:
+    - sensor.current_time
+    - sensor.worldclock_sensor
     - sensor.alarm_time
     - group.alarm_clock_group
   view: true
@@ -51,9 +53,9 @@ rpi_info_group:
   entities:
   - sensor.myipopendnscom
   - sensor.cpu_speed
-  - sensor.cpu_use
-  - sensor.ram_free
-  - sensor.disk_use_home
+  - sensor.cpu_used
+  - sensor.ram_available
+  - sensor.disk_used_home
   - switch.home_assistant_system_shutdown
 daily_drivers:
   name: Favourites
@@ -65,11 +67,12 @@ media_control_view:
   name: Media
   view: true
   entities:
+  - group.rpi_info_group
   - media_player.kodi
   - media_player.spotify
   - group.hdmi_switch_group
   - group.transmission_item_group
-
+  - media_player.plex_c1i46cturgs7ta7cqm36wotu
 hyperion_group:
   name: Hyperion Control
   entities:
