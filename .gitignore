@@ -47,3 +47,5 @@ know_devices.yaml
 source/
 /config/source/
 homebridge/persist/*
+ssh/id_rsa
+ssh/known_hosts
