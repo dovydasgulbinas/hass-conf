@@ -137,4 +137,4 @@ input_select:
     icon: mdi:white-balance-iridescent
 
 shell_command:
-  run_hyperion_effect:  "ssh homeassistant@192.168.0.103 \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "
+  run_hyperion_effect:  "ssh -i /config/ssh/id_rsa homeassistant@192.168.0.103 \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "

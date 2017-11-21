@@ -23,8 +23,12 @@
 - platform: command_line
   switches:
     hyperion_service:
-      command_on: "ssh homeassistant@192.168.0.103 'sudo systemctl start hyperion.service'"
-      command_off: "ssh homeassistant@192.168.0.103 'sudo systemctl stop hyperion.service'"
-      # command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-      # value_template: '{{ value == "1" }}'
+      command_on: "ssh -i /config/ssh/id_rsa  homeassistant@192.168.0.103 'sudo systemctl start hyperion.service'"
+      command_off: "ssh -i /config/ssh/id_rsa homeassistant@192.168.0.103 'sudo systemctl stop hyperion.service'"
       friendly_name: Hyperion Service
+
+- platform: command_line
+  switches:
+    test_ssh:
+      command_on: "ssh -i /config/ssh/id_rsa homeassistant@192.168.0.103 'echo hass-did-it >> /home/homeassistant/test-ssh.txt'"
+      friendly_name: Magic Test Switch
