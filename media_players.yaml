@@ -13,6 +13,17 @@
       entity_id: 'media_player.kodi'
       method: System.Reboot
 
+- platform: kodi
+  host: !secret kodi_host2
+  username: !secret kodi_username2
+  password: !secret kodi_password2
+  port: 8080
+  turn_off_action:
+    service: media_player.kodi_call_method
+    data_template:
+      entity_id: 'media_player.kodi2'
+      method: System.Reboot
+
 - platform: plex
   entity_namespace: 'plex'
   include_non_clients: true

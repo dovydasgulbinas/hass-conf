@@ -23,8 +23,8 @@
 - platform: command_line
   switches:
     hyperion_service:
-      command_on: "ssh -i /config/ssh/id_rsa  homeassistant@192.168.0.103 'sudo systemctl start hyperion.service'"
-      command_off: "ssh -i /config/ssh/id_rsa homeassistant@192.168.0.103 'sudo systemctl stop hyperion.service'"
+      command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no homeassistant@192.168.0.103 'sudo systemctl start hyperion.service'"
+      command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no homeassistant@192.168.0.103 'hyperion-remote --color 000000 && sleep 2 && sudo systemctl stop hyperion.service'"
       friendly_name: Hyperion Service
 
 - platform: command_line

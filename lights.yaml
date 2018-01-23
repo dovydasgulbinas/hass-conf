@@ -1,2 +1,4 @@
 - platform: hyperion
   host: !secret hyperion_host
+  name: Hyperion monitor
+  priority: 230
