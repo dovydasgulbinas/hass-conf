@@ -69,14 +69,16 @@ media_control_view:
   entities:
   - group.rpi_info_group
   - media_player.kodi
+  - media_player.kodi_2
   - media_player.spotify
   - group.hdmi_switch_group
   - group.transmission_item_group
   - media_player.plex_c1i46cturgs7ta7cqm36wotu
+  - group.hyperion_group
 hyperion_group:
   name: Hyperion Control
   entities:
     - input_select.hyperion_effects
     - script.hyperion_run
-    - light.omc
     - switch.hyperion_service
+    - light.hyperion_monitor

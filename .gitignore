@@ -49,3 +49,7 @@ source/
 homebridge/persist/*
 ssh/id_rsa
 ssh/known_hosts
+appdaemon/
+
+homebridge/
+appdaemon/
