@@ -21,7 +21,7 @@
   turn_off_action:
     service: media_player.kodi_call_method
     data_template:
-      entity_id: 'media_player.kodi2'
+      entity_id: 'media_player.kodi_2'
       method: System.Reboot
 
 - platform: plex
