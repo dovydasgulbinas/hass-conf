@@ -16,7 +16,7 @@ wakeup:
   - alias: Volume UP kodi
     data:
       entity_id: media_player.kodi
-      volume_level: '1.0'
+      volume_level: '0.8'
     service: media_player.volume_set
   - alias: Start LRT
     data:
@@ -51,13 +51,13 @@ good_night:
   - alias: Play rain
     data:
       entity_id: media_player.kodi
-      media_content_id: plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=yhx3JIF7bGU
+      media_content_id: plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=1ZYbU82GVz4
       media_content_type: video
     service: media_player.play_media
   - alias: volume down kodi
     data:
       entity_id: media_player.kodi
-      volume_level: '0.3'
+      volume_level: '0.4'
     service: media_player.volume_set
 leaving_home:
   alias: Leaving home!
@@ -71,11 +71,15 @@ leaving_home:
       entity_id: light.my_light
       transition: 2
     service: light.turn_off
-  - alias: Pause kodi
+  - alias: Pause living room kodi
+    data:
+      entity_id: media_player.kodi_2
+    service: media_player.media_pause
+  - alias: Pause my room kodi
     data:
       entity_id: media_player.kodi
     service: media_player.media_pause
-  - alias: kill monitor
+  - alias: kill Hall TV
     data:
       entity_id: switch.strip_cord
     service: switch.turn_off
@@ -90,17 +94,12 @@ welcome_home:
     data:
       entity_id: switch.strip_cord
     service: switch.turn_on
-  - delay:
-      seconds: 20
   - alias: volume down kodi
     data:
-      entity_id: media_player.kodi
-      volume_level: '0.8'
+      entity_id: media_player.kodi_2
+      volume_level: '0.6'
     service: media_player.volume_set
-  - alias: Unpause kodi
-    service: media_player.media_play
-    data:
-      entity_id: media_player.kodi
+
 hyperion_run:
   alias: Run Hyperion Effect
   sequence:

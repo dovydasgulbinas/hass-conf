@@ -2,6 +2,7 @@
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
+# my room kodi
 - platform: kodi
   host: !secret kodi_host 
   username: !secret kodi_username
@@ -10,7 +11,7 @@
   turn_off_action:
     service: media_player.kodi_call_method
     data_template:
-      entity_id: 'media_player.kodi'
+      entity_id: 'media_player.kodi_2'
       method: System.Reboot
 
 - platform: kodi
@@ -21,13 +22,13 @@
   turn_off_action:
     service: media_player.kodi_call_method
     data_template:
-      entity_id: 'media_player.kodi_2'
+      entity_id: 'media_player.kodi'
       method: System.Reboot
 
-- platform: plex
-  entity_namespace: 'plex'
-  include_non_clients: true
-  scan_interval: 30
-  show_all_controls: true
-  use_custom_entity_ids: true
-  use_episode_art: true
+#- platform: plex
+#  entity_namespace: 'plex'
+#  include_non_clients: true
+#  scan_interval: 30
+#  show_all_controls: true
+#  use_custom_entity_ids: true
+#  use_episode_art: true

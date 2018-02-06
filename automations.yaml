@@ -51,41 +51,6 @@
     data:
       entity_id: script.wakeup
 
-- id: turn_on_light_automatically
-  alias: Turn on light in evenings
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:20:00"
-  condition:
-    condition: state
-    entity_id: device_tracker.hermesmobile
-    state: home
-  action:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.room_normal_slow
-
-- id: media_idle_light_on
-  alias: "Media player paused/stopped"
-  trigger:
-  - entity_id: media_player.kodi
-    platform: state
-    from: 'playing'
-    to: 'paused'
-  - entity_id: media_player.kodi
-    platform: state
-    from: 'playing'
-    to: 'idle'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: 'below_horizon'
-  action:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.room_normal
-
 - id: turn_on_hyperion_in_evenings
   alias: Turn On Hyperion Service On Sunset
   trigger:
@@ -121,6 +86,26 @@
       data:
         entity_id: scene.room_dim
 
+- id: loreta_start_playing_turn_on_socket
+  alias: "Loreta is playing"
+  trigger:
+  - entity_id: media_player.kodi_2
+    platform: state
+    from: 'paused'
+    to: 'playing'
+  - entity_id: media_player.kodi_2
+    platform: state
+    from: 'idle'
+    to: 'playing'
+  condition:
+  - condition: state
+    entity_id: device_tracker.hermesmobile
+    state: 'home'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.strip_cord
+        #
 # - id: automation_hyperion_effect_run
 #   alias: "Activate Hyperion Effect Automation"
 #   trigger:
