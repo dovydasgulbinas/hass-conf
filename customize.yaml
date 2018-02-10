@@ -67,8 +67,10 @@ light.omc:
   friendly_name: Backlight
 sensor.hermesmobile_battery_state:
   hidden: true
+  homebridge_hidden: true
 sensor.hermesmobile_battery_level:
   hidden: true
+  homebridge_hidden: true
 script.hyperion_run:
   can_cancel: false
 device_tracker.hermesmobile: {}
@@ -108,3 +110,14 @@ media_player.plex_web_firefox:
   hidden: true
 media_player.kodi_2:
   friendly_name: Loreta Kodi
+switch.test_ssh:
+  hidden: true
+  homebridge_hidden: true
+device_tracker.jonassamsung:
+  homebridge_hidden: true
+device_tracker.jonaslenovo:
+  homebridge_hidden: true
+sensor.cpu_used:
+  homebridge_hidden: true
+switch.slowdown_transmission:
+  homebridge_name: Slowdown Transmission

@@ -9,10 +9,6 @@ wakeup:
     data:
       entity_id: automation.media_player_playing
     service: automation.turn_on
-  - alias: Turn on Socket
-    data:
-      entity_id: switch.strip_cord
-    service: switch.turn_on
   - alias: Volume UP kodi
     data:
       entity_id: media_player.kodi
@@ -40,10 +36,6 @@ good_night:
     data:
       entity_id: automation.media_player_playing
     service: automation.turn_off
-  - alias: kill monitor
-    data:
-      entity_id: switch.strip_cord
-    service: switch.turn_off
   - alias: Disable hyperion service
     data:
       entity_id: switch.hyperion_service
@@ -59,40 +51,33 @@ good_night:
       entity_id: media_player.kodi
       volume_level: '0.4'
     service: media_player.volume_set
-
 leaving_home:
   alias: Leaving home!
   sequence:
   - alias: Notify me
-    service: notify.notify
     data:
       message: See you later!
-  - alias: Turn off my light
-    data:
-      entity_id: light.my_light
-      transition: 2
-    service: light.turn_off
+    service: notify.notify
   - alias: Pause living room kodi
     data:
       entity_id: media_player.kodi_2
-    service: media_player.media_pause
+    service: media_player.media_stop
   - alias: Pause my room kodi
     data:
       entity_id: media_player.kodi
-    service: media_player.media_pause
+    service: media_player.media_stop
   - alias: kill Hall TV
     data:
       entity_id: switch.strip_cord
     service: switch.turn_off
   - alias: enter standby
-    service: media_player.kodi_call_method
     data:
+      addonid: script.json-cec
       entity_id: media_player.kodi_2
       method: Addons.ExecuteAddon
-      addonid: script.json-cec
       params:
         command: standby
-
+    service: media_player.kodi_call_method
 welcome_home:
   alias: Back at home!
   sequence:
@@ -117,16 +102,11 @@ welcome_home:
       addonid: script.json-cec
       params:
         command: activate
-
-
-
 hyperion_run:
   alias: Run Hyperion Effect
   sequence:
   - alias: Run selected effect
     service: shell_command.run_hyperion_effect
-
-
 tv_from_standby:
   alias: Wake TV from Standby
   sequence:
@@ -138,8 +118,6 @@ tv_from_standby:
       addonid: script.json-cec
       params:
         command: activate
-
-        
 tv_to_standby:
   alias: Set TV to Standby
   sequence:
@@ -151,5 +129,3 @@ tv_to_standby:
       addonid: script.json-cec
       params:
         command: standby
-
-
