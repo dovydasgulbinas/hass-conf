@@ -30,7 +30,7 @@ sensor.home_humidity:
 sensor.home_pressure:
   icon: mdi:thermometer-lines
 media_player.kodi:
-  hidden: false
+  friendly_name: OMC Kodi
 media_player.spotify:
   hidden: false
 group.transmission_item_group:
@@ -104,3 +104,7 @@ input_select.hyperion_effects:
   - UDP listener
 sensor.alarm_time:
   friendly_name: Alarm Time
+media_player.plex_web_firefox:
+  hidden: true
+media_player.kodi_2:
+  friendly_name: Loreta Kodi
