@@ -1,4 +1,6 @@
 - platform: hyperion
   host: !secret hyperion_host
   name: Hyperion monitor
-  priority: 230
+  priority: 255
+  default_color: [200, 0, 0]
+  #effect_list: ['Rainbow swirl', 'Knight rider']

@@ -25,12 +25,14 @@ transmission_item_group:
   - sensor.sonarr_wanted
   - weblink.kodi
 hdmi_switch_group:
-  name: HDMI Selector
+  name: TV Manager
   entities:
   - switch.hdmi_channel_1
   - switch.hdmi_channel_2
   - switch.hdmi_channel_3
   - switch.strip_cord
+  - script.tv_to_standby
+  - script.tv_from_standby
 alarm_clock_group:
   name: Alarm Clock
   entities:
@@ -61,7 +63,6 @@ daily_drivers:
   name: Favourites
   entities:
   - light.my_light
-  - light.omc
   - switch.strip_cord
 media_control_view:
   name: Media

@@ -53,3 +53,4 @@ appdaemon/
 
 homebridge/
 appdaemon/
+entity_registry.yaml

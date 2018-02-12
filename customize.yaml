@@ -31,10 +31,11 @@ sensor.home_pressure:
   icon: mdi:thermometer-lines
 media_player.kodi:
   friendly_name: OMC Kodi
+  homebridge_name: OMC Kodi
 media_player.spotify:
   hidden: false
 group.transmission_item_group:
-  hidden: false
+  homebridge_hidden: true
 group.hdmi_switch_group:
   hidden: false
 switch.home_assistant_system_shutdown:
@@ -73,7 +74,8 @@ sensor.hermesmobile_battery_level:
   homebridge_hidden: true
 script.hyperion_run:
   can_cancel: false
-device_tracker.hermesmobile: {}
+device_tracker.hermesmobile:
+  homebridge_hidden: true
 device_tracker.f04f7cb7f7f4:
   hidden: true
 input_select.hyperion_effects:
@@ -110,6 +112,7 @@ media_player.plex_web_firefox:
   hidden: true
 media_player.kodi_2:
   friendly_name: Loreta Kodi
+  homebridge_name: Loreta Kodi
 switch.test_ssh:
   hidden: true
   homebridge_hidden: true
@@ -121,3 +124,18 @@ sensor.cpu_used:
   homebridge_hidden: true
 switch.slowdown_transmission:
   homebridge_name: Slowdown Transmission
+device_tracker.hermespc:
+  friendly_name: hermes-lenovo
+  homebridge_hidden: true
+device_tracker.d8c4e9591336:
+  homebridge_hidden: true
+device_tracker.toshibasatellite:
+  homebridge_hidden: true
+device_tracker.povilasiphone:
+  homebridge_hidden: true
+device_tracker.3c2eff4b4f22:
+  homebridge_hidden: true
+device_tracker.18895bc3030e:
+  homebridge_hidden: true
+group.rpi_info_group:
+  homebridge_hidden: true

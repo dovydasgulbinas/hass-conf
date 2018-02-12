@@ -47,3 +47,5 @@
   entities:
     script.good_night:
       state: on
+    script.leaving_home:
+      state: on

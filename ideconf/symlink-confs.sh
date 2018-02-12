@@ -16,3 +16,11 @@ src='/config/ideconf/.gitconfig'
 dst='/root/.gitconfig'
 mv $dst "$dst.bak"
 ln -s $src $dst 
+
+
+# .vimrc
+src='/config/ideconf/.vimrc'
+dst='/root/.vimrc'
+mv $dst "$dst.bak"
+ln -s $src $dst 
+
