@@ -53,24 +53,11 @@ updater:
 # Discover some devices automatically
 discovery:
 
-#device_tracker:
-#  - platform: nmap_tracker
-#    hosts: 192.168.0.1/24
-#    home_interval: 10
-#    exclude:
-#     - 192.168.0.107
-#     - 192.168.0.1
-#     - 192.168.0.2
-#     - 192.168.0.3
-#     - 192.168.0.4
-#     - 192.168.0.103
-
 device_tracker:
   - platform: ddwrt
     host: !secret router_ip
     username: !secret router_user
     password: !secret router_pass
-
 
 
 ios:
@@ -81,7 +68,17 @@ conversation:
 history:
 
 # View all events in a logbook
+#logbook:
+#  entities:
+#    exclude:
+#      - sensor.current_time
+#      - sensor.worldclock_sensor
 logbook:
+  exclude:
+    entities:
+      - sensor.current_time
+      - sensor.worldclock_sensor
+
 
 # Track the sun
 sun:

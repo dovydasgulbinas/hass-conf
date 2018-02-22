@@ -25,6 +25,11 @@
       entity_id: 'media_player.kodi'
       method: System.Reboot
 
+- platform: mpd
+  host: !secret mpd_host
+  name: MPD Kali
+  password: !secret mpd_password
+
 #- platform: plex
 #  entity_namespace: 'plex'
 #  include_non_clients: true

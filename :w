@@ -134,18 +134,3 @@ stream_icecast_to_omc:
   alias: Stream Icecast2 to Kodi OMC
   sequence:
     - delay: '00:00:05'
-    - service: 'media_player.play_media'
-      data:
-        entity_id: media_player.kodi
-        media_content_id: !secret icecast_url
-        media_content_type: 'audio/mp4'
-
-stream_icecast_to_loreta:
-  alias: Stream Icecast2 to Kodi Loreta
-  sequence:
-    - delay: '00:00:05'
-    - service: 'media_player.play_media'
-      data:
-        entity_id: media_player.kodi_2
-        media_content_id: !secret icecast_url
-        media_content_type: 'audio/mp4'

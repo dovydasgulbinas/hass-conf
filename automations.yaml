@@ -104,7 +104,6 @@
   - data:
       entity_id: script.tv_from_standby
     service: script.turn_on
-
 - id: jonas-came-home
   trigger:
   - entity_id: device_tracker.jonassamsung
@@ -113,25 +112,36 @@
     to: home
     for:
       hours: 0
-      minutes: 15
+      minutes: 10
       seconds: 0
-  action: 
+  action:
   - data:
       message: Jonas is Back Home!
     service: notify.notify
   alias: Jonas Is Home
-
 - id: jonas-left-home
   trigger:
   - entity_id: device_tracker.jonassamsung
-    platform: state
-    from: home
-    to: not_home
     for:
       hours: 0
-      minutes: 15
+      minutes: 10
       seconds: 0
-  action: 
+    from: home
+    platform: state
+    to: not_home
+  action:
   - data:
       message: Jonas Left Home
     service: notify.notify
+  alias: Jonas Left Home
+
+
+- id: cast_mpd_to_omc
+  alias: Cast to OMC when playing from MPD
+  trigger:
+    platform: state
+    entity_id: media_player.mpd_kali
+    to: 'playing'
+  action:
+    - service: script.turn_on
+      entity_id: script.stream_icecast_to_omc
