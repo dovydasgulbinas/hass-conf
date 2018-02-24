@@ -5,24 +5,26 @@
 # my room kodi
 - platform: kodi
   host: !secret kodi_host 
+  name: !secret kodi_name
   username: !secret kodi_username
   password: !secret kodi_password
   port: 8080
   turn_off_action:
     service: media_player.kodi_call_method
     data_template:
-      entity_id: 'media_player.kodi_2'
+      entity_id: 'media_player.kodi_omc'
       method: System.Reboot
 
 - platform: kodi
   host: !secret kodi_host2
+  name: !secret kodi_name2
   username: !secret kodi_username2
   password: !secret kodi_password2
   port: 8080
   turn_off_action:
     service: media_player.kodi_call_method
     data_template:
-      entity_id: 'media_player.kodi'
+      entity_id: 'media_player.kodi_loreta'
       method: System.Reboot
 
 - platform: mpd

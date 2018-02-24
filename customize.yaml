@@ -29,7 +29,7 @@ sensor.home_humidity:
   icon: mdi:water-percent
 sensor.home_pressure:
   icon: mdi:thermometer-lines
-media_player.kodi:
+media_player.kodi_omc:
   friendly_name: OMC Kodi
   homebridge_name: OMC Kodi
 media_player.spotify:
@@ -110,7 +110,7 @@ sensor.alarm_time:
   friendly_name: Alarm Time
 media_player.plex_web_firefox:
   hidden: true
-media_player.kodi_2:
+media_player.kodi_loreta:
   friendly_name: Loreta Kodi
   homebridge_name: Loreta Kodi
 switch.test_ssh:

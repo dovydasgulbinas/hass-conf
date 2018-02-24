@@ -69,8 +69,8 @@ media_control_view:
   name: Media
   view: true
   entities:
-  - media_player.kodi
-  - media_player.kodi_2
+  - media_player.kodi_omc
+  - media_player.kodi_loreta
   - media_player.spotify
   - media_player.mpd_kali
   - group.hdmi_switch_group
@@ -90,6 +90,7 @@ radio_group:
     - input_select.radio_station_list
     - input_select.radio_endpoints
     - script.stream_radio_to_player
+    - input_number.mediavolume
     - script.stop_media_on_selected
 fav_scene_group:
   name: Fav Scenes

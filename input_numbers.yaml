@@ -1,0 +1,21 @@
+alarmhour:
+  name: Hour
+  icon: mdi:timer
+  initial: 8
+  min: 0
+  max: 23
+  step: 1
+alarmminutes:
+  name: Minutes
+  icon: mdi:timer
+  initial: 00
+  min: 0
+  max: 59
+  step: 5
+mediavolume:
+  name: Volume
+  icon: mdi:volume-high
+  initial: 0.4
+  min: 0.0
+  max: 1.0
+  step: 0.05

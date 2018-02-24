@@ -68,11 +68,6 @@ conversation:
 history:
 
 # View all events in a logbook
-#logbook:
-#  entities:
-#    exclude:
-#      - sensor.current_time
-#      - sensor.worldclock_sensor
 logbook:
   exclude:
     entities:
@@ -94,24 +89,8 @@ script: !include scripts.yaml
 switch: !include switches.yaml
 group: !include groups.yaml
 light: !include lights.yaml
-
 media_player: !include media_players.yaml
-
-input_number:
-  alarmhour:
-    name: Hour
-    icon: mdi:timer
-    initial: 8
-    min: 0
-    max: 23
-    step: 1
-  alarmminutes:
-    name: Minutes
-    icon: mdi:timer
-    initial: 00
-    min: 0
-    max: 59
-    step: 5
+input_number: !include input_numbers.yaml
 
 
 weblink:

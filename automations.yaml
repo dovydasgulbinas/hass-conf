@@ -65,11 +65,11 @@
 - id: media_playing_light_off
   alias: Media player playing
   trigger:
-  - entity_id: media_player.kodi
+  - entity_id: media_player.kodi_omc
     platform: state
     from: paused
     to: playing
-  - entity_id: media_player.kodi
+  - entity_id: media_player.kodi_omc
     platform: state
     from: idle
     to: playing
@@ -84,16 +84,7 @@
 - id: loreta_start_playing_turn_on_socket
   alias: Loreta is playing
   trigger:
-  - entity_id: media_player.kodi_2
-    from: paused
-    platform: state
-    to: playing
-  - entity_id: media_player.kodi_2
-    from: idle
-    platform: state
-    to: playing
-  - entity_id: media_player.kodi_2
-    from: 'off'
+  - entity_id: media_player.kodi_loreta
     platform: state
     to: playing
   action:
@@ -142,3 +133,13 @@
   action:
   - service: script.turn_on
     entity_id: script.stream_icecast_to_omc
+
+- id: vol_changed_set_media_vol
+  alias: "Auto: Sets volume on mediavolume change"
+  trigger:
+    platform: state
+    entity_id: input_number.mediavolume
+  action:
+  - data:
+      entity_id: script.set_volume_on_selected
+    service: script.turn_on

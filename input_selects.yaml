@@ -11,5 +11,5 @@ radio_station_list:
 radio_endpoints:
   name: 'Select Radio Endpoint:'
   options:
-    - 'OMC -> media_player.kodi'
-    - 'Loreta -> media_player.kodi_2'
+    - 'OMC -> media_player.kodi_omc'
+    - 'Loreta -> media_player.kodi_loreta'

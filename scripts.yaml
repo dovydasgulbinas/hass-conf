@@ -11,12 +11,12 @@ wakeup:
     service: automation.turn_on
   - alias: Volume UP kodi
     data:
-      entity_id: media_player.kodi
+      entity_id: media_player.kodi_omc
       volume_level: '0.8'
     service: media_player.volume_set
   - alias: Start LRT
     data:
-      entity_id: media_player.kodi
+      entity_id: media_player.kodi_omc
       item:
         channelid: 18
       method: Player.Open
@@ -38,12 +38,12 @@ good_night:
     service: automation.turn_off
   - alias: volume down kodi
     data:
-      entity_id: media_player.kodi
+      entity_id: media_player.kodi_omc
       volume_level: '0.4'
     service: media_player.volume_set
   - alias: Play rain
     data:
-      entity_id: media_player.kodi
+      entity_id: media_player.kodi_omc
       media_content_id: plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=1ZYbU82GVz4
       media_content_type: video
     service: media_player.play_media
@@ -68,11 +68,11 @@ leaving_home:
     service: notify.notify
   - alias: Pause living room kodi
     data:
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
     service: media_player.media_stop
   - alias: Pause my room kodi
     data:
-      entity_id: media_player.kodi
+      entity_id: media_player.kodi_omc
     service: media_player.media_stop
   - alias: kill Hall TV
     data:
@@ -81,7 +81,7 @@ leaving_home:
   - alias: enter standby
     data:
       addonid: script.json-cec
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
       method: Addons.ExecuteAddon
       params:
         command: standby
@@ -99,13 +99,13 @@ welcome_home:
     service: switch.turn_on
   - alias: volume down kodi
     data:
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
       volume_level: '0.6'
     service: media_player.volume_set
   - alias: exit standby
     service: media_player.kodi_call_method
     data:
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
@@ -121,7 +121,7 @@ tv_from_standby:
   - alias: exit standby
     service: media_player.kodi_call_method
     data:
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
@@ -132,7 +132,7 @@ tv_to_standby:
   - alias: enter standby
     service: media_player.kodi_call_method
     data:
-      entity_id: media_player.kodi_2
+      entity_id: media_player.kodi_loreta
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
@@ -144,7 +144,7 @@ stream_icecast_to_omc:
     - delay: '00:00:05'
     - service: 'media_player.play_media'
       data:
-        entity_id: media_player.kodi
+        entity_id: media_player.kodi_omc
         media_content_id: !secret icecast_url
         media_content_type: 'audio/mp4'
 
@@ -154,7 +154,7 @@ stream_icecast_to_loreta:
     - delay: '00:00:05'
     - service: 'media_player.play_media'
       data:
-        entity_id: media_player.kodi_2
+        entity_id: media_player.kodi_loreta
         media_content_id: !secret icecast_url
         media_content_type: 'audio/mp4'
 
@@ -174,3 +174,10 @@ stop_media_on_selected:
       data_template:
         entity_id: '{{states.input_select.radio_endpoints.state.split(" -> ")[1]}}'
         
+set_volume_on_selected:
+  alias: "Set Volume"
+  sequence:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: '{{states.input_select.radio_endpoints.state.split(" -> ")[1]}}'
+        volume_level: '{{states.input_number.mediavolume.state}}'
