@@ -52,17 +52,16 @@
 - id: turn_on_hyperion_in_evenings
   alias: Turn On Hyperion Service On Sunset
   trigger:
-    platform: sun
-    event: sunset
-    offset: -00:20:00
+  - entity_id: device_tracker.hermesmobile
+    platform: state
+    to: home
   condition:
-    condition: state
-    entity_id: device_tracker.hermesmobile
-    state: home
+  - after: sunset
+    condition: sun
   action:
-  - service: switch.turn_on
-    data:
+  - data:
       entity_id: switch.hyperion_service
+    service: switch.turn_on
 - id: media_playing_light_off
   alias: Media player playing
   trigger:
@@ -134,14 +133,12 @@
       message: Jonas Left Home
     service: notify.notify
   alias: Jonas Left Home
-
-
 - id: cast_mpd_to_omc
   alias: Cast to OMC when playing from MPD
   trigger:
     platform: state
     entity_id: media_player.mpd_kali
-    to: 'playing'
+    to: playing
   action:
-    - service: script.turn_on
-      entity_id: script.stream_icecast_to_omc
+  - service: script.turn_on
+    entity_id: script.stream_icecast_to_omc

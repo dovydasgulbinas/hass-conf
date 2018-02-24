@@ -137,14 +137,7 @@ panel_iframe:
     url: 'http://192.168.0.4'
 
 
-# HYPERION
-
-input_select:
-  hyperion_effects:
-    name: Hyperion Effects
-    options: !include hyperion_effect_list.yaml
-    initial: Rainbow swirl
-    icon: mdi:white-balance-iridescent
+input_select: !include input_selects.yaml
 
 shell_command:
   run_hyperion_effect:  "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no homeassistant@192.168.0.103 \"hyperion-remote -e '{{states.input_select.hyperion_effects.state}}'\" "

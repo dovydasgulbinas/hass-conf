@@ -49,6 +49,7 @@ alarm_clowck_view:
     - sensor.worldclock_sensor
     - sensor.alarm_time
     - group.alarm_clock_group
+    - group.fav_scene_group
   view: true
 rpi_info_group:
   name: Raspberry Info
@@ -68,14 +69,15 @@ media_control_view:
   name: Media
   view: true
   entities:
-  - group.rpi_info_group
   - media_player.kodi
   - media_player.kodi_2
   - media_player.spotify
+  - media_player.mpd_kali
   - group.hdmi_switch_group
-  - group.transmission_item_group
   - media_player.plex_c1i46cturgs7ta7cqm36wotu
   - group.hyperion_group
+  - group.radio_group
+  - group.fav_scene_group
 hyperion_group:
   name: Hyperion Control
   entities:
@@ -83,3 +85,21 @@ hyperion_group:
     - script.hyperion_run
     - switch.hyperion_service
     - light.hyperion_monitor
+radio_group:
+  entities:
+    - input_select.radio_station_list
+    - input_select.radio_endpoints
+    - script.stream_radio_to_player
+    - script.stop_media_on_selected
+fav_scene_group:
+  name: Fav Scenes
+  entities:
+    - scene.good_morning
+    - scene.good_night
+node_controll_view:
+  name: Nodes
+  view: true
+  entities:
+  - group.rpi_info_group
+  - group.transmission_item_group
+

@@ -139,3 +139,31 @@ device_tracker.18895bc3030e:
   homebridge_hidden: true
 group.rpi_info_group:
   homebridge_hidden: true
+input_select.radio_station_list:
+  icon: mdi:radio
+input_select.radio_endpoints:
+  icon: mdi:cast
+group.radio_group:
+  friendly_name: "Radio Controlls \U0001F4FB"
+  icon: mdi:radio-tower
+  order: 1
+script.stream_radio_to_player:
+  friendly_name: Stream!
+  icon: mdi:arrow-right-drop-circle
+group.media_control_view:
+  icon: mdi:television-box
+  order: 1
+group.alarm_clock_group:
+  icon: mdi:alarm
+group.alarm_clowck_view:
+  icon: mdi:alarm
+  order: 1
+script.stop_media_on_selected:
+  friendly_name: Stop!
+  icon: mdi:stop-circle
+group.node_controll_view:
+  icon: mdi:monitor-multiple
+group.fav_scene_group:
+  friendly_name: Fav Scenes ⭐️
+group.hyperion_group:
+  friendly_name: "Hyperion Control \U0001F308"
