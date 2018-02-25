@@ -49,3 +49,19 @@
       state: on
     script.leaving_home:
       state: on
+
+- name: Prepare for sleep
+  entities:
+    script.sleepytime:
+      state: on
+
+- name: "Game ON!"
+  entities:
+    script.gamingtime:
+      state: on
+
+- name: "Sexi t xD"
+  entities:
+    script.xoxoxotime:
+      state: on
+

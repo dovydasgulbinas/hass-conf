@@ -15,43 +15,6 @@
       arg: /home
     - type: memory_free
     - type: processor_use
-#- platform: android_ip_webcam
-#  resources:
-#    - type: light
-#    - type: pressure
-#    - type: battery_temp
-
-#- platform: mqtt
-#  state_topic: "sensor/hermesnode"
-#  name: "Home Temperature"
-#  unit_of_measurement: "°C"
-#  value_template: '{{ value_json.temperature | round(1) }}'
-#  force_update: true
-#  icon: mdi:temperature-celsius
-#
-#- platform: mqtt
-#  state_topic: "sensor/hermesnode"
-#  name: "Home Humidity"
-#  unit_of_measurement: "%"
-#  value_template: '{{ value_json.humidity | round(1) }}'
-#  force_update: true
-#  icon: mdi:water-percent
-#
-#- platform: mqtt
-#  state_topic: "sensor/hermesnode"
-#  name: "Home Precise Temperature"
-#  unit_of_measurement: "°C"
-#  value_template: '{{ value_json.temp_precise | round(2) }}'
-#  force_update: true
-#  icon: mdi:temperature-celsius
-#
-#- platform: mqtt
-#  state_topic: "sensor/hermesnode"
-#  name: "Home Pressure"
-#  unit_of_measurement: "mbar"
-#  value_template: '{{ value_json.pressure | round(2) }}'
-#  force_update: true
-#  icon: mdi:thermometer-lines
 
 - platform: transmission
   host: !secret transmission_host
@@ -92,6 +55,44 @@
 - platform: worldclock
   time_zone: 'Europe/Vilnius'
 
+
+#- platform: android_ip_webcam
+#  resources:
+#    - type: light
+#    - type: pressure
+#    - type: battery_temp
+
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Temperature"
+#  unit_of_measurement: "°C"
+#  value_template: '{{ value_json.temperature | round(1) }}'
+#  force_update: true
+#  icon: mdi:temperature-celsius
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Humidity"
+#  unit_of_measurement: "%"
+#  value_template: '{{ value_json.humidity | round(1) }}'
+#  force_update: true
+#  icon: mdi:water-percent
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Precise Temperature"
+#  unit_of_measurement: "°C"
+#  value_template: '{{ value_json.temp_precise | round(2) }}'
+#  force_update: true
+#  icon: mdi:temperature-celsius
+#
+#- platform: mqtt
+#  state_topic: "sensor/hermesnode"
+#  name: "Home Pressure"
+#  unit_of_measurement: "mbar"
+#  value_template: '{{ value_json.pressure | round(2) }}'
+#  force_update: true
+#  icon: mdi:thermometer-lines
 
 # - platform: template
 

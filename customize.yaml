@@ -144,7 +144,7 @@ input_select.radio_station_list:
 input_select.radio_endpoints:
   icon: mdi:cast
 group.radio_group:
-  friendly_name: "Radio Controlls \U0001F4FB"
+  friendly_name: "Radio Controls \U0001F4FB"
   icon: mdi:radio-tower
   order: 1
 script.stream_radio_to_player:
@@ -167,3 +167,5 @@ group.fav_scene_group:
   friendly_name: Fav Scenes ⭐️
 group.hyperion_group:
   friendly_name: "Hyperion Control \U0001F308"
+automation.cast_to_omc_when_playing_from_mpd:
+  initial_state: 'off'

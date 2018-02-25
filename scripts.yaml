@@ -181,3 +181,27 @@ set_volume_on_selected:
       data_template:
         entity_id: '{{states.input_select.radio_endpoints.state.split(" -> ")[1]}}'
         volume_level: '{{states.input_number.mediavolume.state}}'
+
+sleepytime:
+  alias: "Prepare for sleep "
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: 'light.hyperion_monitor'
+        rgb_color: [120, 0, 0] 
+
+gamingtime:
+  alias: "Game ON!"
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: 'light.hyperion_monitor'
+        effect: "Rainbow swirl" 
+
+xoxoxotime:
+  alias: "Sexi t xD"
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: 'light.hyperion_monitor'
+        rgb_color: [120, 0, 0] 

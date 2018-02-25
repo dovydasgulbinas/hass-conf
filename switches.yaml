@@ -29,6 +29,14 @@
 
 - platform: command_line
   switches:
-    test_ssh:
-      command_on: "ssh -i /config/ssh/id_rsa homeassistant@192.168.0.103 'echo hass-did-it >> /home/homeassistant/test-ssh.txt'"
-      friendly_name: Magic Test Switch
+    shutdown_kali:
+      command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown 0'"
+      command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
+      friendly_name: Shut Down Kali
+
+- platform: command_line
+  switches:
+    reboot_kali:
+      command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -r 0'"
+      command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
+      friendly_name: Reboot Kali

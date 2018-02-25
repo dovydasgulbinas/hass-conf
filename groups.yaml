@@ -95,12 +95,24 @@ radio_group:
 fav_scene_group:
   name: Fav Scenes
   entities:
-    - scene.good_morning
+    - scene.prepare_for_sleep
     - scene.good_night
+    - scene.good_morning
+    - scene.game_on
+    - scene.sexy_t_xd
+
+kali_controls:
+  name: Kali Control
+  entities:
+    - switch.reboot_kali
+    - switch.shutdown_kali
+    - media_player.mpd_kali
+
 node_controll_view:
   name: Nodes
   view: true
   entities:
+  - group.kali_controls
   - group.rpi_info_group
   - group.transmission_item_group
 
