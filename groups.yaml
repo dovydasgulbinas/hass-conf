@@ -41,7 +41,6 @@ alarm_clock_group:
   - input_number.alarmminutes
   - input_boolean.alarmweekday
   - input_boolean.alarmweekon
-  # view: true
 alarm_clowck_view:
   name: Alarm Clock
   entities:
@@ -112,6 +111,11 @@ node_controll_view:
   name: Nodes
   view: true
   entities:
+  - sensor.disk_use_percent_home
+  - sensor.memory_free
+  - sensor.transmission_down_speed
+  - sensor.transmission_up_speed
+  - sensor.processor_use
   - group.kali_controls
   - group.rpi_info_group
   - group.transmission_item_group
