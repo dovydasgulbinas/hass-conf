@@ -94,36 +94,6 @@
   - data:
       entity_id: script.tv_from_standby
     service: script.turn_on
-- id: jonas-came-home
-  trigger:
-  - entity_id: device_tracker.jonassamsung
-    platform: state
-    from: not_home
-    to: home
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-  action:
-  - data:
-      message: Jonas is Back Home!
-    service: notify.notify
-  alias: Jonas Is Home
-- id: jonas-left-home
-  trigger:
-  - entity_id: device_tracker.jonassamsung
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    from: home
-    platform: state
-    to: not_home
-  action:
-  - data:
-      message: Jonas Left Home
-    service: notify.notify
-  alias: Jonas Left Home
 - id: cast_mpd_to_omc
   alias: Cast to OMC when playing from MPD
   trigger:
@@ -143,3 +113,15 @@
   - data:
       entity_id: script.set_volume_on_selected
     service: script.turn_on
+
+- id: "pentagon_animation_speed"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_number.pentagon_animation_speed
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "fun/pentagon/set"
+        payload: '{"transition":{{ trigger.to_state.state | int }}}'

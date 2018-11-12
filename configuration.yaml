@@ -20,8 +20,15 @@ homeassistant:
 frontend:
   themes: !include_dir_merge_named themes/
   
-#recorder:
-  #db_url: !secret hass_sql 
+recorder:
+  purge_keep_days: 14
+  db_url: !secret hass_sql 
+  exclude:
+    entities:
+      - sensor.current_time
+      - sensor.worldclock_sensor
+
+
 
 notify:
   - name: Hass.io
@@ -43,8 +50,8 @@ http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret hass_api_password
   base_url: !secret hass_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
 
 
 # Checks for available updates
@@ -93,14 +100,14 @@ media_player: !include media_players.yaml
 input_number: !include input_numbers.yaml
 
 
-weblink:
-  entities:
-    - name: Transmission
-      url: http://omc.local:9091
-    - name: Sonarr
-      url: http://omc.local:8989
-    - name: Kodi
-      url: http://omc.local:8080/
+# weblink:
+#   entities:
+#     - name: Transmission
+#       url: http://omc.local:9091
+#     - name: Sonarr
+#       url: http://omc.local:8989
+#     - name: Kodi
+#       url: http://omc.local:8080/
 
 
 #logger:

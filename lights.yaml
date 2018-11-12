@@ -4,3 +4,33 @@
   priority: 255
   default_color: [200, 0, 0]
   #effect_list: ['Rainbow swirl', 'Knight rider']
+ 
+- platform: mqtt_json
+  name: "Pentagon"
+  state_topic: "fun/pentagon"
+  command_topic: "fun/pentagon/set"
+  effect: true
+  effect_list:
+    - bpm
+    - candy cane  
+    - confetti  
+    - cyclon rainbow  
+    - dots  
+    - fire  
+    - glitter  
+    - juggle  
+    - lightning
+    - noise  
+    - police all  
+    - police one  
+    - rainbow  
+    - rainbow with glitter  
+    - ripple  
+    - sinelon  
+    - solid  
+    - twinkle  
+  brightness: true
+  flash: true
+  rgb: true
+  optimistic: false
+  qos: 0
