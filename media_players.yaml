@@ -13,24 +13,12 @@
     service: media_player.kodi_call_method
     data_template:
       entity_id: 'media_player.kodi_omc'
-      method: System.Reboot
+      method: Application.Quit
 
-- platform: kodi
-  host: !secret kodi_host2
-  name: !secret kodi_name2
-  username: !secret kodi_username2
-  password: !secret kodi_password2
-  port: 8080
-  turn_off_action:
-    service: media_player.kodi_call_method
-    data_template:
-      entity_id: 'media_player.kodi_loreta'
-      method: System.Reboot
-
-- platform: mpd
-  host: !secret mpd_host
-  name: MPD Kali
-  password: !secret mpd_password
+# - platform: mpd
+#   host: !secret mpd_host
+#   name: MPD Kali
+#   password: !secret mpd_password
 
 #- platform: plex
 #  entity_namespace: 'plex'

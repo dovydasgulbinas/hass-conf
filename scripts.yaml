@@ -68,26 +68,15 @@ leaving_home:
     data:
       message: See you later!
     service: notify.notify
-  - alias: Pause living room kodi
-    data:
-      entity_id: media_player.kodi_loreta
-    service: media_player.media_stop
   - alias: Pause my room kodi
     data:
       entity_id: media_player.kodi_omc
     service: media_player.media_stop
-  - alias: kill Hall TV
+  - alias: turn monitor off
     data:
       entity_id: switch.strip_cord
     service: switch.turn_off
-  - alias: enter standby
-    data:
-      addonid: script.json-cec
-      entity_id: media_player.kodi_loreta
-      method: Addons.ExecuteAddon
-      params:
-        command: standby
-    service: media_player.kodi_call_method
+
 welcome_home:
   alias: Back at home!
   sequence:
@@ -101,17 +90,10 @@ welcome_home:
     service: switch.turn_on
   - alias: volume down kodi
     data:
-      entity_id: media_player.kodi_loreta
+      entity_id: media_player.kodi_omc
       volume_level: '0.6'
     service: media_player.volume_set
-  - alias: exit standby
-    service: media_player.kodi_call_method
-    data:
-      entity_id: media_player.kodi_loreta
-      method: Addons.ExecuteAddon
-      addonid: script.json-cec
-      params:
-        command: activate
+
 hyperion_run:
   alias: Run Hyperion Effect
   sequence:
@@ -197,12 +179,12 @@ gamingtime:
       entity_id: light.hyperion_monitor
       effect: Rainbow swirl
 xoxoxotime:
-  alias: Sexi t xD
+  alias: Red Like Lenin
   sequence:
   - service: light.turn_on
     data:
       entity_id: light.hyperion_monitor
       rgb_color:
-      - 120
+      - 255
       - 0
       - 0

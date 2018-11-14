@@ -81,29 +81,16 @@
   - service: scene.turn_on
     data:
       entity_id: scene.room_dim
-- id: loreta_start_playing_turn_on_socket
-  alias: Loreta is playing
+- id: omc_start_playing_turn_on_socket
+  alias: Omc is playing
   trigger:
-  - entity_id: media_player.kodi_loreta
+  - entity_id: media_player.kodi_omc
     platform: state
     to: playing
   action:
   - data:
       entity_id: switch.strip_cord
     service: switch.turn_on
-  - data:
-      entity_id: script.tv_from_standby
-    service: script.turn_on
-- id: cast_mpd_to_omc
-  alias: Cast to OMC when playing from MPD
-  trigger:
-    platform: state
-    entity_id: media_player.mpd_kali
-    to: playing
-  action:
-  - service: script.turn_on
-    entity_id: script.stream_icecast_to_omc
-
 - id: vol_changed_set_media_vol
   alias: "Auto: Sets volume on mediavolume change"
   trigger:
@@ -113,7 +100,6 @@
   - data:
       entity_id: script.set_volume_on_selected
     service: script.turn_on
-
 - id: "pentagon_animation_speed"
   initial_state: True
   hide_entity: False

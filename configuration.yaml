@@ -28,6 +28,12 @@ recorder:
       - sensor.current_time
       - sensor.worldclock_sensor
 
+# View all events in a logbook
+logbook:
+  exclude:
+    entities:
+      - sensor.current_time
+      - sensor.worldclock_sensor
 
 
 notify:
@@ -74,12 +80,6 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
-# View all events in a logbook
-logbook:
-  exclude:
-    entities:
-      - sensor.current_time
-      - sensor.worldclock_sensor
 
 
 # Track the sun
@@ -100,16 +100,6 @@ media_player: !include media_players.yaml
 input_number: !include input_numbers.yaml
 
 
-# weblink:
-#   entities:
-#     - name: Transmission
-#       url: http://omc.local:9091
-#     - name: Sonarr
-#       url: http://omc.local:8989
-#     - name: Kodi
-#       url: http://omc.local:8080/
-
-
 #logger:
 #  default: warning
 #  logs:
@@ -118,9 +108,15 @@ input_number: !include input_numbers.yaml
 
 
 panel_iframe:
-  router:
+  socket:
     title: 'Socket'
     url: 'http://192.168.0.4'
+    icon: mdi:mdi-power-socket-us
+  terminal:
+    title: 'Terminal'
+    url: 'http://192.168.0.105:7681'
+    icon: mdi:mdi-console
+
 
 
 input_select: !include input_selects.yaml
