@@ -1,9 +1,3 @@
-hyperion_effects:
-  name: Hyperion Effects
-  options: !include hyperion_effect_list.yaml
-  initial: Rainbow swirl
-  icon: mdi:white-balance-iridescent
-
 radio_station_list:
   name: 'Select radio station:'
   options: !include radio_stations.yaml

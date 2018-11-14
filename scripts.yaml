@@ -51,23 +51,23 @@ good_night:
     data:
       entity_id: light.hyperion_monitor
       rgb_color:
-      - 120
+      - 100
       - 0
       - 0
     service: light.turn_on
   - delay:
       minutes: 20
-  - alias: Disable hyperion service
+  - alias: Make it Black
     data:
-      entity_id: switch.hyperion_service
-    service: switch.turn_off
+      entity_id: light.hyperion_monitor
+      rgb_color:
+      - 0
+      - 0
+      - 0
+    service: light.turn_on
 leaving_home:
   alias: Leaving home!
   sequence:
-  - alias: Notify me
-    data:
-      message: See you later!
-    service: notify.notify
   - alias: Pause my room kodi
     data:
       entity_id: media_player.kodi_omc
@@ -76,14 +76,14 @@ leaving_home:
     data:
       entity_id: switch.strip_cord
     service: switch.turn_off
+  - alias: Notify me
+    data:
+      message: See you later!
+    service: notify.notify
 
 welcome_home:
   alias: Back at home!
   sequence:
-  - alias: Notify me
-    service: notify.notify
-    data:
-      message: Welcome back home!
   - alias: turn monitor on
     data:
       entity_id: switch.strip_cord
@@ -93,12 +93,11 @@ welcome_home:
       entity_id: media_player.kodi_omc
       volume_level: '0.6'
     service: media_player.volume_set
+  - alias: Notify me
+    service: notify.notify
+    data:
+      message: Welcome back home!
 
-hyperion_run:
-  alias: Run Hyperion Effect
-  sequence:
-  - alias: Run selected effect
-    service: shell_command.run_hyperion_effect
 stream_radio_to_player:
   alias: Stream Generic radio Device
   sequence:
@@ -108,6 +107,7 @@ stream_radio_to_player:
       media_content_id: '{{states.input_select.radio_station_list.state.split(" ->
         ")[1]}}'
       media_content_type: audio/mp4
+
 stop_media_on_selected:
   alias: Stop playback
   sequence:
@@ -122,12 +122,12 @@ set_volume_on_selected:
       entity_id: '{{states.input_select.radio_endpoints.state.split(" -> ")[1]}}'
       volume_level: '{{states.input_number.mediavolume.state}}'
 sleepytime:
-  alias: 'Prepare for sleep '
+  alias: 'Prepare for sleep'
   sequence:
   - data:
       entity_id: light.hyperion_monitor
       rgb_color:
-      - 255
+      - 150
       - 0
       - 0
     service: light.turn_on
@@ -139,7 +139,7 @@ gamingtime:
       entity_id: light.hyperion_monitor
       effect: Rainbow swirl
 xoxoxotime:
-  alias: Red Like Lenin
+  alias: Install Leninism RN!
   sequence:
   - service: light.turn_on
     data:
