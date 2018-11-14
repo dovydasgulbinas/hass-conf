@@ -59,6 +59,11 @@ rpi_info_group:
   - sensor.ram_available
   - sensor.disk_used_home
   - switch.home_assistant_system_shutdown
+pentagon_group:
+  name: Pentagon Home
+  entities:
+  - light.pentagon
+  - input_number.pentagon_animation_speed
 daily_drivers:
   name: Favourites
   entities:
@@ -71,7 +76,6 @@ media_control_view:
   - media_player.kodi_omc
   - media_player.kodi_loreta
   - media_player.spotify
-  - media_player.mpd_kali
   - group.hdmi_switch_group
   - media_player.plex_c1i46cturgs7ta7cqm36wotu
   - group.hyperion_group
@@ -84,6 +88,13 @@ hyperion_group:
     - script.hyperion_run
     - switch.hyperion_service
     - light.hyperion_monitor
+all_light_view:
+  name: Lights
+  icon: mdi:lightbulb-on
+  view: true
+  entities:
+    - group.pentagon_group
+    - group.hyperion_group
 radio_group:
   entities:
     - input_select.radio_station_list
@@ -99,13 +110,11 @@ fav_scene_group:
     - scene.good_morning
     - scene.game_on
     - scene.sexy_t_xd
-
-kali_controls:
-  name: Kali Control
-  entities:
-    - switch.reboot_kali
-    - switch.shutdown_kali
-    - media_player.mpd_kali
+# kali_controls:
+#   name: Kali Control
+#   entities:
+#     - switch.reboot_kali
+#     - switch.shutdown_kali
 
 node_controll_view:
   name: Nodes

@@ -99,46 +99,6 @@ hyperion_run:
   sequence:
   - alias: Run selected effect
     service: shell_command.run_hyperion_effect
-tv_from_standby:
-  alias: Wake TV from Standby
-  sequence:
-  - alias: exit standby
-    service: media_player.kodi_call_method
-    data:
-      entity_id: media_player.kodi_loreta
-      method: Addons.ExecuteAddon
-      addonid: script.json-cec
-      params:
-        command: activate
-tv_to_standby:
-  alias: Set TV to Standby
-  sequence:
-  - alias: enter standby
-    service: media_player.kodi_call_method
-    data:
-      entity_id: media_player.kodi_loreta
-      method: Addons.ExecuteAddon
-      addonid: script.json-cec
-      params:
-        command: standby
-stream_icecast_to_omc:
-  alias: Stream Icecast2 to Kodi OMC
-  sequence:
-  - delay: 00:00:05
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.kodi_omc
-      media_content_id: http://192.168.0.9:8000/mopidy
-      media_content_type: audio/mp4
-stream_icecast_to_loreta:
-  alias: Stream Icecast2 to Kodi Loreta
-  sequence:
-  - delay: 00:00:05
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.kodi_loreta
-      media_content_id: http://192.168.0.9:8000/mopidy
-      media_content_type: audio/mp4
 stream_radio_to_player:
   alias: Stream Generic radio Device
   sequence:

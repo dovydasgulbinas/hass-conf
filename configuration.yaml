@@ -111,11 +111,11 @@ panel_iframe:
   socket:
     title: 'Socket'
     url: 'http://192.168.0.4'
-    icon: mdi:mdi-power-socket-us
+    icon: mdi:power-socket-us
   terminal:
     title: 'Terminal'
     url: 'http://192.168.0.105:7681'
-    icon: mdi:mdi-console
+    icon: mdi:console
 
 
 

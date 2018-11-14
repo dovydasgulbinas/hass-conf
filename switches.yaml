@@ -27,16 +27,16 @@
       command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no homeassistant@192.168.0.103 'hyperion-remote --color 000000 && sleep 2 && sudo systemctl stop hyperion.service'"
       friendly_name: Hyperion Service
 
-- platform: command_line
-  switches:
-    shutdown_kali:
-      command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown 0'"
-      command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
-      friendly_name: Shut Down Kali
-
-- platform: command_line
-  switches:
-    reboot_kali:
-      command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -r 0'"
-      command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
-      friendly_name: Reboot Kali
+# - platform: command_line
+#   switches:
+#     shutdown_kali:
+#       command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown 0'"
+#       command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
+#       friendly_name: Shut Down Kali
+# 
+# - platform: command_line
+#   switches:
+#     reboot_kali:
+#       command_on: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -r 0'"
+#       command_off: "ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=no hassio@192.168.0.9 'sudo /sbin/shutdown -c'"
+#       friendly_name: Reboot Kali
