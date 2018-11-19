@@ -85,9 +85,8 @@ history:
 # Track the sun
 sun:
 
-
-# tts:
-#   platform: google
+tts:
+  platform: google
 
 sensor: !include sensors.yaml
 scene: !include scenes.yaml
