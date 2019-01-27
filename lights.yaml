@@ -5,8 +5,9 @@
   default_color: [200, 0, 0]
   #effect_list: ['Rainbow swirl', 'Knight rider']
  
-- platform: mqtt_json
-  name: "Pentagon"
+- platform: mqtt
+  schema: json
+  name: "pentagon"
   state_topic: "fun/pentagon"
   command_topic: "fun/pentagon/set"
   effect: true
